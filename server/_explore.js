@@ -1,26 +1,34 @@
 const fs = require('fs');
 
 module.exports.dir = (root, path) => {
+
+    const _preparedPath = _preparePath(path),
+        fullPath = root + _preparedPath;
+
     try {
-        const fullPath = root + _preparePath(path);
-        return fs.readdirSync(fullPath)
-            .map(file => {
-                const stats = fs.lstatSync(fullPath + '/' + file);
-                return {
-                    name: file,
-                    isDirectory: stats.isDirectory()
-                };
-            })
-            .sort((a, b) => {
-                if (a.isDirectory === b.isDirectory) {
-                    return a.name > b.name ? 1 : -1;
-                } else {
-                    return a.isDirectory && !b.isDirectory ? -1 : 1;
-                }
-            });
+        return {
+            files: fs.readdirSync(fullPath)
+                .map(file => {
+                    const stats = fs.lstatSync(fullPath + '/' + file);
+                    return {
+                        name: file,
+                        isDirectory: stats.isDirectory()
+                    };
+                })
+                .sort((a, b) => {
+                    if (a.isDirectory === b.isDirectory) {
+                        return a.name > b.name ? 1 : -1;
+                    } else {
+                        return a.isDirectory && !b.isDirectory ? -1 : 1;
+                    }
+                }),
+            path: _preparedPath
+        };
     } catch (e) {
-        console.error(e);
-        return null;
+        return {
+            files: null,
+            path: _preparedPath
+        };
     }
 };
 

@@ -1,3 +1,5 @@
+<app-explore-breadcrumbs [path]="path" (changePath)="onChangePath($event)"></app-explore-breadcrumbs>
+
 <table class="table table-striped table-bordered">
     <thead>
     <tr>
@@ -8,13 +10,21 @@
     <tbody>
     <tr *ngFor="let file of list">
         <td>
-            <i class="fa fa-fw mr-2" [ngClass]="{
-                'fa-folder': file.isDirectory,
-                'fa-file': !file.isDirectory
-            }"></i>
-            {{file.name}}
+            <a href="#" *ngIf="file.isDirectory" (click)="changeDirRelative($event, file.name)">
+                <i class="fa fa-folder fa-fw mr-2"></i>
+                {{file.name}}
+            </a>
+            <span *ngIf="!file.isDirectory">
+                <i class="fa fa-file fa-fw mr-2"></i>
+                {{file.name}}
+            </span>
         </td>
         <td></td>
+    </tr>
+    <tr *ngIf="!(list && list.length)">
+        <td class="text-muted" colspan="2">
+            <em>Empty</em>
+        </td>
     </tr>
     </tbody>
 </table>

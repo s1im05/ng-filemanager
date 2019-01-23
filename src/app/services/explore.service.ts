@@ -12,8 +12,8 @@ export class ExploreService {
     constructor(public http: HttpClient) {
     }
 
-    dir(path: string): Promise<any[]> {
-        return this.http.get<any[]>(this.apiUrl + '/dir', {
+    dir(path: string): Promise<IFileListResponse> {
+        return this.http.get<IFileListResponse>(this.apiUrl + '/dir', {
             params: {
                 path: path
             }

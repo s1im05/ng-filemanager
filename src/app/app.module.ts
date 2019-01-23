@@ -9,6 +9,7 @@ import {ExploreComponent} from './page/explore/explore.component';
 import {ExploreService} from './services/explore.service';
 import { ExploreTableComponent } from './explore/explore-table/explore-table.component';
 import {HttpClientModule} from '@angular/common/http';
+import { ExploreBreadcrumbsComponent } from './explore/explore-breadcrumbs/explore-breadcrumbs.component';
 
 @NgModule({
     declarations: [
@@ -16,7 +17,8 @@ import {HttpClientModule} from '@angular/common/http';
         NotFoundComponent,
         LoginComponent,
         ExploreComponent,
-        ExploreTableComponent
+        ExploreTableComponent,
+        ExploreBreadcrumbsComponent
     ],
     imports: [
         HttpClientModule,

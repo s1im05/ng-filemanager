@@ -8,7 +8,7 @@ import {ExploreService} from '../../services/explore.service';
 })
 export class ExploreTableComponent implements OnInit {
 
-    list: any[];
+    list: IFile[];
 
     constructor(public service: ExploreService) {
     }
@@ -19,10 +19,34 @@ export class ExploreTableComponent implements OnInit {
 
     async load() {
         try {
-            this.list = await this.service.dir('');
+            const response = await this.service.dir(this.path);
+            this.list = response.files;
+            window.scrollTo(0, 0);
         } catch (e) {
             console.error(e);
         }
     }
 
+    changeDirRelative(e: MouseEvent, dirName: string) {
+        e.preventDefault();
+        this.path = this.path + '/' + dirName;
+    }
+
+    changeDirAbsolute(e: MouseEvent, dirName: string) {
+        e.preventDefault();
+        this.path = dirName;
+    }
+
+    get path(): string {
+        return window.sessionStorage.getItem('path') || '';
+    }
+
+    set path(newPath: string) {
+        window.sessionStorage.setItem('path', newPath);
+        this.load();
+    }
+
+    onChangePath(newPath: string) {
+        this.path = newPath;
+    }
 }

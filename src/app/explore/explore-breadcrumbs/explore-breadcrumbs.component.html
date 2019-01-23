@@ -1,0 +1,6 @@
+<ul class="breadcrumb">
+    <li class="breadcrumb-item" *ngFor="let dir of breadCrumbs; let bcIndex = index">
+        <a *ngIf="bcIndex + 1 < breadCrumbs.length" class="text-bold" href="#" (click)="changeDir($event, bcIndex)">{{dir || '[root]'}}</a>
+        <span *ngIf="bcIndex + 1 === breadCrumbs.length" class="text-bold">{{dir || '[root]'}}</span>
+    </li>
+</ul>
