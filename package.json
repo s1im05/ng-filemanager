@@ -4,7 +4,7 @@
     "scripts": {
         "ng": "ng",
         "start": "ng serve",
-        "start-static-server": "nodemon --watch server --delay 2500ms server/index",
+        "start-static-server": "nodemon --watch server --delay 500ms server/index",
         "build": "ng build",
         "test": "ng test",
         "lint": "ng lint",
