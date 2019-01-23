@@ -7,4 +7,5 @@ declare interface IFileListResponse {
 declare interface IFile {
     name: string;
     isDirectory: boolean;
+    size: number;
 }

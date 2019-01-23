@@ -12,7 +12,8 @@ module.exports.dir = (root, path) => {
                     const stats = fs.lstatSync(fullPath + '/' + file);
                     return {
                         name: file,
-                        isDirectory: stats.isDirectory()
+                        isDirectory: stats.isDirectory(),
+                        size: stats.size
                     };
                 })
                 .sort((a, b) => {

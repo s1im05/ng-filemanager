@@ -4,7 +4,7 @@
     <thead>
     <tr>
         <th>Name</th>
-        <th></th>
+        <th>Size</th>
     </tr>
     </thead>
     <tbody>
@@ -19,7 +19,7 @@
                 {{file.name}}
             </span>
         </td>
-        <td></td>
+        <td class="text-right" [title]="!file.isDirectory ? file.size + ' bytes' : ''">{{file.isDirectory ? '&lt;dir&gt;' : file.size | fileSize}}</td>
     </tr>
     <tr *ngIf="!(list && list.length)">
         <td class="text-muted" colspan="2">

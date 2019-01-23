@@ -10,6 +10,7 @@ import {ExploreService} from './services/explore.service';
 import { ExploreTableComponent } from './explore/explore-table/explore-table.component';
 import {HttpClientModule} from '@angular/common/http';
 import { ExploreBreadcrumbsComponent } from './explore/explore-breadcrumbs/explore-breadcrumbs.component';
+import { FileSizePipe } from './pipes/file-size.pipe';
 
 @NgModule({
     declarations: [
@@ -18,7 +19,8 @@ import { ExploreBreadcrumbsComponent } from './explore/explore-breadcrumbs/explo
         LoginComponent,
         ExploreComponent,
         ExploreTableComponent,
-        ExploreBreadcrumbsComponent
+        ExploreBreadcrumbsComponent,
+        FileSizePipe
     ],
     imports: [
         HttpClientModule,
