@@ -4,7 +4,7 @@
     <thead>
     <tr>
         <th>Name</th>
-        <th>Size</th>
+        <th class="text-right">Size</th>
     </tr>
     </thead>
     <tbody>
@@ -28,3 +28,9 @@
     </tr>
     </tbody>
 </table>
+
+<div class="overlay" *ngIf="wait">
+    <div class="preloader">
+        <i class="fa fa-spin fa-spinner"></i>
+    </div>
+</div>

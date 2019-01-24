@@ -9,6 +9,7 @@ import {ExploreService} from '../../services/explore.service';
 export class ExploreTableComponent implements OnInit {
 
     list: IFile[];
+    wait: boolean;
 
     constructor(public service: ExploreService) {
     }
@@ -18,6 +19,7 @@ export class ExploreTableComponent implements OnInit {
     }
 
     async load() {
+        this.wait = true;
         try {
             const response = await this.service.dir(this.path);
             this.list = response.files;
@@ -25,6 +27,7 @@ export class ExploreTableComponent implements OnInit {
         } catch (e) {
             console.error(e);
         }
+        this.wait = false;
     }
 
     changeDirRelative(e: MouseEvent, dirName: string) {
