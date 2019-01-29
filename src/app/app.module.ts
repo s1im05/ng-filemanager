@@ -7,10 +7,11 @@ import {NotFoundComponent} from './page/not-found/not-found.component';
 import {LoginComponent} from './page/login/login.component';
 import {ExploreComponent} from './page/explore/explore.component';
 import {ExploreService} from './services/explore.service';
-import { ExploreTableComponent } from './explore/explore-table/explore-table.component';
+import {ExploreTableComponent} from './explore/explore-table/explore-table.component';
 import {HttpClientModule} from '@angular/common/http';
-import { ExploreBreadcrumbsComponent } from './explore/explore-breadcrumbs/explore-breadcrumbs.component';
-import { FileSizePipe } from './pipes/file-size.pipe';
+import {ExploreBreadcrumbsComponent} from './explore/explore-breadcrumbs/explore-breadcrumbs.component';
+import {FileSizePipe} from './pipes/file-size.pipe';
+import {NavTopComponent} from './layout/nav-top/nav-top.component';
 
 @NgModule({
     declarations: [
@@ -20,7 +21,8 @@ import { FileSizePipe } from './pipes/file-size.pipe';
         ExploreComponent,
         ExploreTableComponent,
         ExploreBreadcrumbsComponent,
-        FileSizePipe
+        FileSizePipe,
+        NavTopComponent
     ],
     imports: [
         HttpClientModule,

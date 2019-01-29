@@ -1,4 +1,3 @@
-
 declare interface IFileListResponse {
     files: IFile[];
     path: string;

@@ -1,0 +1,21 @@
+<nav class="navbar navbar-light bg-light">
+    <div class="nav-sm-panel">
+        <div class="btn-group mr-3">
+            <button class="btn btn-outline-primary active"><i class="fa fa-list"></i></button>
+            <button class="btn btn-outline-primary"><i class="fa fa-table"></i></button>
+        </div>
+
+        <button class="btn btn-outline-primary" [class.active]="showHidden" (click)="hiddenToggle.emit(showHidden = !showHidden)">
+            <i class="fa" [ngClass]="{'fa-check-square-o': showHidden, 'fa-square-o': !showHidden}"></i>
+            hidden
+        </button>
+    </div>
+
+
+    <form class="form-inline">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">
+            <i class="fa fa-search"></i>
+        </button>
+    </form>
+</nav>

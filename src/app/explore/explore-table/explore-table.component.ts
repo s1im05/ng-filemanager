@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {ExploreService} from '../../services/explore.service';
 
 @Component({
@@ -6,8 +6,9 @@ import {ExploreService} from '../../services/explore.service';
     templateUrl: './explore-table.component.html',
     styleUrls: ['./explore-table.component.scss']
 })
-export class ExploreTableComponent implements OnInit {
+export class ExploreTableComponent implements OnInit, OnChanges {
 
+    @Input() showHidden: boolean;
     list: IFile[];
     wait: boolean;
 
@@ -18,11 +19,17 @@ export class ExploreTableComponent implements OnInit {
         this.load();
     }
 
+    ngOnChanges(changes: SimpleChanges) {
+        if (changes.hasOwnProperty('showHidden')) {
+            this.load();
+        }
+    }
+
     async load() {
         this.wait = true;
         try {
             const response = await this.service.dir(this.path);
-            this.list = response.files;
+            this.list = response.files.filter(file => this.showHidden ? file : file.name[0] !== '.');
             window.scrollTo(0, 0);
         } catch (e) {
             console.error(e);

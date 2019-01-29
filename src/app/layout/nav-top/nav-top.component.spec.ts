@@ -1,20 +1,20 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import {ExploreTableComponent} from './explore-table.component';
+import {NavTopComponent} from './nav-top.component';
 
-describe('ExploreTableComponent', () => {
-    let component: ExploreTableComponent;
-    let fixture: ComponentFixture<ExploreTableComponent>;
+describe('NavTopComponent', () => {
+    let component: NavTopComponent;
+    let fixture: ComponentFixture<NavTopComponent>;
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [ExploreTableComponent]
+            declarations: [NavTopComponent]
         })
             .compileComponents();
     }));
 
     beforeEach(() => {
-        fixture = TestBed.createComponent(ExploreTableComponent);
+        fixture = TestBed.createComponent(NavTopComponent);
         component = fixture.componentInstance;
         fixture.detectChanges();
     });
