@@ -5,7 +5,7 @@
             <button class="btn btn-outline-primary"><i class="fa fa-table"></i></button>
         </div>
 
-        <button class="btn btn-outline-primary" [class.active]="showHidden" (click)="hiddenToggle.emit(showHidden = !showHidden)">
+        <button class="btn btn-outline-primary" [class.active]="showHidden" (click)="onHiddenToggle()">
             <i class="fa" [ngClass]="{'fa-check-square-o': showHidden, 'fa-square-o': !showHidden}"></i>
             hidden
         </button>
