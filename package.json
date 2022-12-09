@@ -22,7 +22,7 @@
         "@angular/router": "~7.1.0",
         "body-parser": "^1.18.3",
         "cors": "^2.8.5",
-        "express": "^4.16.4",
+        "express": "^4.17.3",
         "font-awesome": "^4.7.0",
         "moment": "^2.23.0",
         "nodemon": "^1.18.9",
